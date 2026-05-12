@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="icon" href="img/mobo.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        :root{
+            --colorClimaCard: #ece2d6;
+            --colorTxtClima: #b70a49;
+            --bege: #ece2d6;
+            --bordaGrafico: #b70a49;
+            --colorGraficoCard:rgba(255, 255, 255, 0.2);
+            --txtColorCard: #3c4c27;
+            --colorArea: #b70a49;
+            --menu: #b70a49;
+            --txtMenu: #3c4c27;
+            --verdeClaro: #61743d;
+            --verdeEscuro: #3c4c27;
+            --vermelho: #b70a49;
+            font-size: 16px;
+            --txt: #000000;
+            --color-primary: #ece2d6;
+            --color-danger: #FF0060;
+            --color-success: #1B9C85;
+            --color-warning: #F7D060;
+            --color-white: #fff;
+            --color-info-dark: #ece2d6;
+            --color-dark: #363949;
+            --color-light: rgba(132, 139, 200, 0.18);
+            --color-dark-variant: #ece2d6;
+            --color-background: #ece2d6;
+            --colorBege: #ece2d6;
+            --card-border-radius: 2rem;
+            --border-radius-1: 0.4rem;
+            --border-radius-2: 1.2rem;
+            --card-padding: 1.8rem;
+            --padding-1: 1.2rem;
+            --box-shadow: 0 2rem 3rem var(--color-light);
+        }
+
+        /* Reset básico */ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            background-color: #b70a49;
+            background: url("img/fundo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: #b70a49;
+            font-family: 'Livvic', sans-serif;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */ 
+        .navbar {
+            background: transparent; 
+            color: #fff;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            animation: fadeIn 1.5s ease-out;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Barra de pesquisa */
+        .search-bar {
+            position: relative;
+            left: 0;
+            transform: none;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 5px 15px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+            border: 2px solid #ece2d6a8;
+            width: 450px;
+            height: 40px;
+            transition: all 0.5s ease;
+            opacity: 0.8;
+            margin: 0 20px;
+        }
+
+        .search-bar:hover {
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3), 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+            opacity: 1;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            width: 100%;
+            margin-left: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .search-bar input::placeholder {
+            color: #ece2d6;
+            transition: color 0.3s ease;
+        }
+
+        .search-bar input:focus::placeholder {
+            color: transparent;
+        }
+
+        .search-bar img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .search-bar:hover img {
+            transform: rotate(20deg);
+            opacity: 0.9;
+        }
+
+        /* Links da navbar */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #61743d;
+        }
+
+        /* Banner */
+        .btnBanner {
+            display: inline-block;
+            background-color: #ece2d6;
+            box-shadow: inset 0 2px 8px #b70a49, 0 5px 35px rgba(0, 0, 0, 0.1);
+            color: #b70a49;
+            font-family: 'Livvic', sans-serif;
+            padding: 14px 30px;
+            text-align: center;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .btnBanner:hover {
+            background-color: #b70a49;
+            color: var(--bege);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .banner {
+            color: #ece2d6;
+            padding: 80px 0;
+            text-align: left;
+        }
+
+        .banner .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            gap: 40px;
+        }
+
+        .banner-text {
+            flex: 1;
+            font-family: 'Livvic', sans-serif;
+        }
+
+        .banner-text h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .banner-text p {
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .banner-character {
+            flex: 1;
+            text-align: right;
+        }
+
+        .banner-character img {
+            max-width: 100%;
+            width: 100%;
+            filter: drop-shadow(0 0 5rem #ffffff);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px;
+            padding-top: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: slideUp 1s ease-out;
+            flex-direction: row-reverse;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 50%;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .tituloTelas {
+            font-family: 'Rubik Bubbles', cursive;
+            font-size: 42px;
+            text-align: center;
+            padding-top: 90px;
+            color: #b70a49;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #b70a49;
+            background: rgba(236, 226, 214, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite, fadeIn 2s ease-out;
+        }
+
+        /* Seção de Features */
+        .tituloCards {
+            color: #b70a49;
+            text-align: center;
+            font-family: 'Rubik Bubbles', cursive;
+            font-size: 40px;
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        .features {
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .features .container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: #b70a49;
+            border-radius: 10px;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card img {
+            width: 180px;
+            margin-bottom: 15px;
+            margin-top: -100px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ece2d6;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .feature-card p {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* Seção de Program Details - AJUSTADA */
+        .program-details {
+            padding: 60px 20px;
+            margin-top: 100px;
+        }
+
+        .program-card {
+            border: 4px solid #b70a49;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #b70a49;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-card h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #b70a49;
+            margin-bottom: 30px;
+            text-align: left;
+            font-family: 'Livvic', sans-serif;
+        }
+
+        .details-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .program-info {
+            flex: 1;
+            text-align: left;
+            padding-right: 20px;
+        }
+
+        .program-info p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #b70a49;
+            font-weight: 500;
+        }
+
+        .avaliacao {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .program-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .program-info ul li {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #b70a49;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .program-info ul li:before {
+            content: "✓";
+            color: #ece2d6;
+            font-weight: bold;
+            font-size: 18px;
+            background: #b70a49;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-install {
+            display: inline-block;
+            background-color: #b70a49;
+            color: #ece2d6;
+            font-family: 'Livvic', sans-serif;
+            padding: 14px 35px;
+            text-align: center;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-install:hover {
+            background-color: #8a0638;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .program-image {
+            flex: 0.6;
+            text-align: center;
+        }
+
+        .program-image img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .program-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: #b70a49;
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+            margin-top: 60px;
+        }
+
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            display: inline-block;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ece2d6;
+            text-decoration: underline;
+        }
+
+        /* Keyframes */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .search-bar {
+                width: 350px;
+                margin: 0 15px;
+            }
+            
+            .banner-text h1 {
+                font-size: 36px;
+            }
+            
+            .banner-text p {
+                font-size: 18px;
+            }
+
+            .program-image img {
+                max-width: 240px;
+            }
+
+            .program-card h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-bar {
+                position: static;
+                width: 100%;
+                margin: 10px 0;
+                order: 2;
+            }
+
+            .logo {
+                order: 1;
+            }
+
+            .nav-right {
+                order: 3;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .banner .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-text {
+                text-align: center;
+            }
+
+            .banner-text p {
+                text-align: center;
+            }
+
+            .banner-character {
+                text-align: center;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .tituloTelas, .tituloCards {
+                font-size: 32px;
+                padding-top: 50px;
+            }
+
+            .features .container {
+                gap: 30px;
+            }
+
+            .feature-card {
+                width: 280px;
+            }
+
+            .feature-card img {
+                width: 150px;
+                margin-top: -80px;
+            }
+
+            .program-card {
+                padding: 30px 20px;
+            }
+
+            .program-card h2 {
+                font-size: 26px;
+                text-align: center;
+            }
+
+            .details-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .program-info {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .program-info p, 
+            .program-info ul li {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .program-info ul li:before {
+                margin-right: 5px;
+            }
+
+            .program-image img {
+                max-width: 220px;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                width: 80px;
+            }
+
+            .banner-text h1 {
+                font-size: 28px;
+            }
+
+            .banner-text p {
+                font-size: 16px;
+            }
+
+            .btnBanner, .btn-install {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+
+            .tituloTelas, .tituloCards {
+                font-size: 24px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            .feature-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .program-card h2 {
+                font-size: 22px;
+            }
+
+            .program-info p {
+                font-size: 14px;
+            }
+
+            .program-info ul li {
+                font-size: 12px;
+            }
+
+            .program-image img {
+                max-width: 180px;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .footer-links {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .footer-links a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="img/mb.png" alt="Logo">
+                </div>
+                
+                <div class="search-bar">
+                    <img src="img/pqs.png" alt="Search Icon">
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Ferramentas</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner -->
+        <div class="banner">
+            <div class="container">
+                <div class="banner-text">
+                    <h1>Bem Vindo ao Mobo!</h1>
+                    <p>Sua plantação agora conta com tecnologia de ponta para garantir a colheita no momento exato. Mais precisão, menos desperdício e maior qualidade da fruta.</p>
+                    <a href="#saiba mais" class="btn btnBanner">Saiba Mais</a>
+                </div>
+                <div class="banner-character">
+                    <img src="img/moboImgBanner.png" alt="Character Image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sistema -->
+    <h1 class="tituloTelas">Conheça nosso Sistema</h1>
+
+    <section class="hero-section" id="saiba mais">
+        <div class="hero-content">
+            <p>O Mobo é um sistema IoT para colheita automatizada de lichias, com um braço mecânico inteligente que realiza a colheita com precisão.</p>
+            <p>Monitoramento em tempo real, controle remoto e dados analíticos garantem maior eficiência, otimizando o processo e reduzindo custos.</p>
+        </div>
+        <div class="hero-image">
+            <img src="img/telas.png" alt="Hero Image">
+        </div>
+    </section>
+
+    <main>
+        <!-- Funcionalidades -->
+        <h1 class="tituloCards">Funcionalidades</h1>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature-card">
+                    <img src="img/icon1.png" alt="Icon 1">
+                    <h3>Dados de Colheita</h3>
+                    <p>- Acompanhe em tempo real os dados sobre a produtividade da colheita, com gráficos e relatórios precisos</p>
+                    <p>- O Mobo coleta e armazena informações essenciais para ajudar na análise de eficiência e no planejamento das safras</p>
+                    <p>- Obtenha insights valiosos sobre as melhores práticas de colheita para maximizar a produção.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/icon2.png" alt="Icon 2">
+                    <h3>Configurações do Braço Mecânico</h3>
+                    <p>- Controle de forma simples as configurações do braço mecânico para uma colheita automatizada e eficiente</p>
+                    <p>- Capture imagens das lichias através da câmera do braço mecânico</p>
+                    <p>- Personalize a velocidade, a força e o ângulo de movimento para otimizar cada operação de colheita</p>
+                </div>
+                <div class="feature-card">
+                    <img src="img/icon3.png" alt="Icon 3">
+                    <h3>Tudo Sobre a Lichia</h3>
+                    <p>- Acesse informações detalhadas sobre a cultura da lichia, como requisitos de solo, clima e dicas de manejo.</p>
+                    <p>- Receba orientações sobre o momento certo de colher e como garantir a melhor qualidade da fruta</p>
+                    <p>- O Mobo fornece tudo o que você precisa saber para produzir lichias de alta qualidade com o mínimo de esforço</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Baixar App - AJUSTADO -->
+        <section class="program-details">
+            <div class="program-card">
+                <div class="details-content">
+                    <div class="program-info">
+                        <h2>Mobo - Tecnologia que Transforma a Colheita</h2>
+                        <p>Baixe o Mobo e experimente a revolução na agricultura. Com tecnologia de ponta, o Mobo ajuda você a colher mais com menos esforço.</p>
+                        <ul>
+                            <li>Controle total da colheita automatizada</li>
+                            <li>Ajustes personalizados para diferentes variedades de lichias</li>
+                            <li class="avaliacao">⭐ Nos Avalie: ★★★★★</li>
+                        </ul>
+                        <a href="http://mobosafra.hopto.org" class="btn btn-install">Baixe aqui</a>
+                    </div>
+                    <div class="program-image">
+                        <img src="img/playStore.png" alt="Program">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="img/mb.png" alt="Logo">
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">Termos & Condições</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
